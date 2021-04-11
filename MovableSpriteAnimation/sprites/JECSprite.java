@@ -4,11 +4,11 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
-public class ABCSprite implements DisplayableSprite, MovableSprite {
+public class JECSprite implements DisplayableSprite, MovableSprite {
 
 	Image image = null;
 	
-	public ABCSprite() {
+	public JECSprite() {
 		super();
 
 		if (image == null) {
