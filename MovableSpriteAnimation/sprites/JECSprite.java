@@ -13,7 +13,7 @@ public class JECSprite implements DisplayableSprite, MovableSprite {
 
 		if (image == null) {
 			try {
-				image = ImageIO.read(new File("res/jec/jec-sprite.png"));
+				image = ImageIO.read(new File("res/JEC/JEC-sprite.png"));
 			}
 			catch (IOException e) {
 				System.out.println(e.toString());
