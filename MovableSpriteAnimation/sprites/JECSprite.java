@@ -6,6 +6,10 @@ import javax.imageio.ImageIO;
 
 public class JECSprite implements DisplayableSprite, MovableSprite {
 	
+	private static Image upImage;
+	private static Image downImage;
+	private static Image leftImage;
+	private static Image rightImage;
 	private static Image image;
 	private double centerX = 0;
 	private double centerY = 0;
@@ -17,9 +21,14 @@ public class JECSprite implements DisplayableSprite, MovableSprite {
 	public JECSprite() {
 		super();
 
-		if (image == null) {
+		if (upImage == null) {
 			try {
-				image = ImageIO.read(new File("res/JEC/sprite.png"));
+				upImage = ImageIO.read(new File("res/JEC/upimage.png"));
+				downImage = ImageIO.read(new File("res/JEC/downimage.png"));
+				leftImage = ImageIO.read(new File("res/JEC/leftimage.png"));
+				rightImage = ImageIO.read(new File("res/JEC/rightimage.png"));
+				image = ImageIO.read(new File("res/JEC/image.png"));
+
 			}
 			catch (IOException e) {
 				System.out.println(e.toString());
@@ -60,8 +69,20 @@ public class JECSprite implements DisplayableSprite, MovableSprite {
 
 	@Override
 	public Image getImage() {
-		// TODO Auto-generated method stub
-		return image;
+		if (velocityX > 0) {
+			return rightImage;
+		}
+		if (velocityX < 0) {
+			return leftImage;
+		}
+		if (velocityY > 0) {
+			return downImage;
+		}
+		if (velocityY < 0)
+			return upImage;
+		else {
+			return image;
+		}
 	}
 
 	@Override
